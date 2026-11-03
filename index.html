@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakso Juragan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Hanken+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" id="brandName">Bakso Juragan</a>
+    <nav aria-label="Navigasi utama">
+      <a class="hide-sm" href="#menu" data-go="menu">Menu</a>
+      <a class="hide-sm" href="#lokasi" data-go="lokasi">Lokasi</a>
+      <a class="btn btn-light btn-sm" href="#pesan" data-go="pesan">Pesan</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Warung bakso · buka tiap hari</span>
+        <h1>Bakso panas, kuah gurih.</h1>
+        <p class="lead">Kuah kaldu tulang sapi direbus sejak pagi. Bakso urat kenyal, mie kuning, sambal pedas yang bisa Anda atur sendiri.</p>
+        <div class="cta">
+          <a class="btn btn-light" href="#menu" data-go="menu">Lihat menu</a>
+          <a class="btn btn-ghost" href="#pesan" data-go="pesan">Pesan lewat WhatsApp</a>
+        </div>
+      </div>
+      <svg class="bowl" viewBox="0 0 400 330" role="img" aria-label="Semangkuk bakso panas dengan uap">
+        <g class="steam">
+          <path d="M140 70 C120 50 160 40 140 15"/>
+          <path d="M200 66 C180 44 220 34 200 8"/>
+          <path d="M260 70 C240 50 280 40 260 15"/>
+        </g>
+        <ellipse cx="200" cy="300" rx="120" ry="14" fill="#000" opacity=".18"/>
+        <path d="M36 150 H364 C364 240 304 296 200 296 C96 296 36 240 36 150 Z" fill="#F4EADC"/>
+        <path d="M44 190 H356 C350 206 342 220 330 232 H70 C58 220 50 206 44 190 Z" fill="#B8281A"/>
+        <path d="M44 190 H356" stroke="#8F1D13" stroke-width="3"/>
+        <ellipse cx="200" cy="150" rx="164" ry="28" fill="#F4EADC"/>
+        <ellipse cx="200" cy="152" rx="148" ry="22" fill="#D9892A"/>
+        <ellipse cx="200" cy="150" rx="120" ry="14" fill="#E8A33A" opacity=".7"/>
+        <circle cx="140" cy="132" r="36" fill="#A9795A"/><circle cx="128" cy="120" r="9" fill="#C69674" opacity=".8"/>
+        <circle cx="214" cy="120" r="40" fill="#B6845F"/><circle cx="200" cy="106" r="10" fill="#D0A07C" opacity=".8"/>
+        <circle cx="278" cy="136" r="34" fill="#A27055"/><circle cx="268" cy="125" r="8" fill="#C18F6E" opacity=".8"/>
+        <circle cx="175" cy="150" r="5" fill="#4F8F3A"/><circle cx="252" cy="156" r="5" fill="#4F8F3A"/>
+        <circle cx="110" cy="158" r="4" fill="#4F8F3A"/><circle cx="300" cy="158" r="4" fill="#4F8F3A"/>
+        <rect x="186" y="156" width="14" height="4" rx="2" fill="#F1D9A0"/><rect x="226" y="160" width="14" height="4" rx="2" fill="#F1D9A0"/>
+        <rect x="150" y="164" width="12" height="4" rx="2" fill="#F1D9A0"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="strip">
+    <dl class="wrap">
+      <div><dt>Jam buka</dt><dd id="hoursShort"></dd></div>
+      <div><dt>Alamat</dt><dd id="addrShort"></dd></div>
+      <div><dt>Pesan</dt><dd id="phoneShort"></dd></div>
+    </dl>
+  </div>
+
+  <section id="menu" class="menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Daftar menu</span>
+        <h2>Pilih semangkuk, atau beberapa.</h2>
+        <p>Tekan Tambah untuk memasukkan ke pesanan. Pesanan dikirim ke WhatsApp warung dari bagian Pesan di bawah.</p>
+      </div>
+      <div id="menuList"></div>
+    </div>
+  </section>
+
+  <section id="pesan" class="order">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Cara pesan</span>
+        <h2 style="font-size:clamp(30px,5vw,46px);margin-top:10px">Tiga langkah, tanpa antre.</h2>
+        <ol class="steps">
+          <li><div><b>Pilih menu</b><span>Tambahkan bakso, pelengkap, dan minuman dari daftar menu.</span></div></li>
+          <li><div><b>Isi nama dan cara ambil</b><span>Makan di tempat, bungkus, atau antar. Tulis juga pilihan mie dan tingkat pedas di catatan.</span></div></li>
+          <li><div><b>Kirim ke WhatsApp</b><span>Rincian pesanan sudah tertulis rapi. Anda tinggal menekan kirim.</span></div></li>
+        </ol>
+      </div>
+      <form class="ticket" id="orderForm" autocomplete="off">
+        <h3>Pesanan Anda</h3>
+        <ul class="lines" id="lines"></ul>
+        <div class="total"><span>Total</span><span id="total">Rp 0</span></div>
+        <div class="row2">
+          <div class="field"><label for="custName">Nama</label><input id="custName" type="text" placeholder="Nama Anda"></div>
+          <div class="field"><label for="mode">Cara ambil</label>
+            <select id="mode"><option>Makan di tempat</option><option>Bungkus</option><option>Antar</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="note">Catatan</label><textarea id="note" placeholder="Contoh: mie kuning, sambal sedang, tanpa seledri"></textarea></div>
+        <a class="btn btn-chili" id="waBtn" href="#" target="_blank" rel="noopener" aria-disabled="true">Kirim pesanan ke WhatsApp</a>
+        <p class="hint" id="waHint">Pilih minimal satu menu untuk mengirim pesanan.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Tentang warung</span>
+        <h2>Semangkuk yang dibuat dengan sabar.</h2>
+      </div>
+      <div class="cols">
+        <div class="col"><h3>Kuah kaldu</h3><p>Tulang sapi direbus berjam-jam sampai kuahnya bening, gurih, dan wangi bawang goreng.</p></div>
+        <div class="col"><h3>Bakso kenyal</h3><p>Daging digiling dan dibentuk setiap hari. Ada bakso halus, bakso urat, dan bakso beranak berisi telur.</p></div>
+        <div class="col"><h3>Sambal sendiri</h3><p>Cabai rawit digiling kasar. Minta pedas sedang atau pedas sekali, sesuai selera Anda.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lokasi" class="visit">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Datang ke warung</span>
+        <h2>Mampir, duduk, makan selagi panas.</h2>
+        <address id="addrFull"></address>
+        <a class="btn btn-light" id="mapBtn" href="#" target="_blank" rel="noopener">Buka di Google Maps</a>
+      </div>
+      <table class="hours" aria-label="Jam buka">
+        <tbody id="hoursTable"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span id="copy"></span>
+    <span id="social"></span>
+  </div>
+</footer>
+
+<div class="bar" id="bar" aria-live="polite">
+  <div class="in">
+    <div class="sum"><small id="barCount">0 item</small><b id="barTotal">Rp 0</b></div>
+    <a class="btn btn-light btn-sm" href="#pesan" data-go="pesan">Lanjut pesan</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
